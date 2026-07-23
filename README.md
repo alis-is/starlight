@@ -1,5 +1,9 @@
 # @alis-is/starlight
 
+> This library is used for our internal projects. Support is limited and we
+> review contributions at our own pace. If you'd like to contribute, please keep
+> PRs under 500 lines and match the existing style.
+
 A themeable **Svelte 5** UI component library.
 
 ## Install
