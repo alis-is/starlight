@@ -1,0 +1,105 @@
+{
+	"name": "@alis-is/starlight",
+	"version": "0.1.0",
+	"description": "Starlight — a themeable Svelte 5 UI component library.",
+	"license": "MIT",
+	"type": "module",
+	"packageManager": "pnpm@11.1.2",
+	"engines": {
+		"node": ">=20",
+		"pnpm": ">=10"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/alis-is/starlight.git"
+	},
+	"keywords": [
+		"svelte",
+		"sveltekit",
+		"ui",
+		"components",
+		"starlight"
+	],
+	"sideEffects": [
+		"**/*.css",
+		"**/*.sass"
+	],
+	"svelte": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"files": [
+		"dist",
+		"!dist/**/*.test.*",
+		"!dist/**/*.spec.*"
+	],
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"svelte": "./dist/index.js",
+			"default": "./dist/index.js"
+		},
+		"./la": {
+			"types": "./dist/la/index.d.ts",
+			"svelte": "./dist/la/index.js",
+			"default": "./dist/la/index.js"
+		},
+		"./components/Terminal.svelte": {
+			"types": "./dist/components/Terminal.svelte.d.ts",
+			"svelte": "./dist/components/Terminal.svelte",
+			"default": "./dist/components/Terminal.svelte"
+		},
+		"./style.sass": "./dist/style.sass",
+		"./package.json": "./package.json",
+		"./*": "./dist/*"
+	},
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com",
+		"access": "public"
+	},
+	"scripts": {
+		"dev": "pnpm --filter playground dev",
+		"dev:package": "svelte-package --watch",
+		"build": "svelte-package && publint",
+		"prepack": "svelte-package",
+		"check": "svelte-check --tsconfig ./tsconfig.json",
+		"icons:build": "node src/lib/la/build.mjs",
+		"lint": "prettier --check . && eslint .",
+		"format": "prettier --write .",
+		"release": "bumpp",
+		"build:playground": "pnpm --filter playground build",
+		"check:playground": "pnpm --filter playground check",
+		"test:e2e": "pnpm --filter playground test:e2e"
+	},
+	"peerDependencies": {
+		"@xterm/addon-fit": "^0.11.0",
+		"@xterm/xterm": "^6.0.0",
+		"svelte": "^5.0.0"
+	},
+	"peerDependenciesMeta": {
+		"@xterm/xterm": {
+			"optional": true
+		},
+		"@xterm/addon-fit": {
+			"optional": true
+		}
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.39.2",
+		"@sveltejs/package": "^2.5.8",
+		"@sveltejs/vite-plugin-svelte": "^6.2.4",
+		"@xterm/addon-fit": "^0.11.0",
+		"@xterm/xterm": "^6.0.0",
+		"bumpp": "^11.1.0",
+		"eslint": "^9.39.2",
+		"eslint-config-prettier": "^10.1.8",
+		"eslint-plugin-svelte": "^3.14.0",
+		"globals": "^17.3.0",
+		"prettier": "^3.8.1",
+		"prettier-plugin-svelte": "^3.4.1",
+		"publint": "^0.3.21",
+		"sass": "^1.101.0",
+		"svelte": "^5.56.6",
+		"svelte-check": "^4.7.3",
+		"typescript": "^5.9.3",
+		"typescript-eslint": "^8.54.0"
+	}
+}

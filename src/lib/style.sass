@@ -1,0 +1,278 @@
+@use "components.sass"
+@use "themes/dark.sass"
+@use "themes/light.sass"
+@use "themes/black.sass"
+@use "themes/candy.sass"
+	
+:root
+	--spacing: 15px
+	@for $i from 2 through 5
+		--spacing-x#{$i}: calc(var(--spacing) * #{$i})
+	@for $i from 2 through 5
+		--spacing-f#{$i}: calc(var(--spacing) / #{$i})
+	--spacing-f2: calc(var(--spacing) / 2)
+	--border-radius: 12px
+
+	// common
+	--common-line-height: 24px
+
+	//menu
+	--menu-background-color: #292929
+	--menu-item-icon-size: var(--common-line-height)
+
+	// nav-menu
+	--nav-menu-size: 49px
+	--nav-menu-expanded-size: 200px
+	--nav-menu-box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px
+	--nav-menu-icon-size: 1.75rem
+	--nav-menu-font-size: 1rem
+	--nav-menu-spacing: var(--spacing-f2)
+	--nav-menu-border-radius-tl: var(--border-radius)
+	--nav-menu-border-radius-bl: var(--border-radius)
+	--nav-menu-border-radius: var(--border-radius)
+
+	// nav-menu item
+	--nav-menu-item-border-radius: var(--border-radius)
+	--nav-menu-item-transition: 0.2s
+	--nav-menu-item-active-font-weight: bold
+	--nav-menu-item-height: var(--nav-menu-size)
+
+	// dialog
+	// general button
+	--button-text-transform: uppercase
+	--button-text-align: center
+	--button-text-decoration: none
+	--button-text-overflow: ellipsis
+	--button-width: 100%
+
+	--button-border-radius: var(--border-radius)
+	--button-border: none
+	--button-outline: none
+	--button-background-size: 300% auto
+	--button-background-position: unset
+
+	--button-letter-spacing: var(--letter-spacing)
+	--button-horizontal-spacing: var(--spacing)
+	--button-vertical-spacing: var(--spacing)
+	--button-box-shadow: none
+	--button-hover-box-shadow: none
+	--button-active-box-shadow: none
+	--button-overflow: hidden
+	--button-font-family: inherit
+	--button-transition: 0.1s
+
+	// icon
+	--icon-size: auto
+
+	// input
+	--input-border-radius: var(--border-radius)
+
+	--input-hint-font-size: calc(var(--font-size) * .8)
+	--input-label-font-size: var(--input-hint-font-size)
+
+	--input-label-font-weight: bold
+	--input-line-height: var(--common-line-height)
+	--input-vertical-spacing: var(--spacing)
+	--input-horizontal-spacing: var(--spacing)
+	--input-hint-vertical-spacing: calc(var(--input-vertical-spacing) / 4)
+	--input-hint-horizontal-spacing: var(--input-horizontal-spacing)
+
+	// checkbox
+	--checkbox-border-radius: calc(var(--border-radius) /2)
+	--checkbox-box-size: var(--common-line-height)
+	--checkbox-border-radius: calc(var(--border-radius) / 2)
+	--checkbox-box-shadow: none
+	--checkbox-border: none
+	--checkbox-label-padding-left: var(--spacing)
+
+	// toggle
+	--toggle-size: 20px
+	--toggle-border-radius: var(--toggle-size)
+
+	// select
+	--select-label-font-weight: bold
+	--select-item-icon-size: var(--common-line-height)
+
+	// expanding container
+	--expanding-container-collapsed-height: 0
+	--expanding-container-expanded-height: auto
+	--expanding-container-collapsed-width: 0
+	--expanding-container-expanded-width: auto
+	--expanding-container-transition-duration: .2s
+	--expanding-container-padding: 0
+
+	// progress bar
+	--progress-bar-icon-size: 2rem
+	--progress-bar-hint-font-size: calc(var(--font-size) * .8)
+	--progress-bar-line-height: 3px
+
+	// island
+	--island-collapsed-height: var(--nav-menu-item-height)
+	--island-collapsed-width: var(--nav-menu-item-height)
+	--island-icon-height: var(--menu-item-icon-size)
+	--island-icon-width: var(--menu-item-icon-size)
+
+	// expander
+	--expander-header-background-image: none
+
+	// ---------------------------------------------------------------
+	// Semantic tokens. Themes only need to override these; every
+	// component below maps onto them, so a new theme is ~15 lines.
+	// ---------------------------------------------------------------
+	--font-size: 1rem
+	--letter-spacing: normal
+
+	// accent — the single brand colour that drives interactive surfaces
+	--accent: #4f8ff7
+	--accent-strong: #3b74d4
+	--accent-contrast: #ffffff
+	--accent-soft: rgba(79, 143, 247, 0.16)
+	// themes may set a tasteful gradient; default is a solid accent
+	--accent-gradient: none
+	--accent-gradient-strong: none
+
+	--error-color: #ef4444
+	--success-color: #22c55e
+	--warning-color: #f59e0b
+
+	// frosted-glass surfaces — translucent + backdrop blur + hairline border.
+	// Themes set --frost-border-color; --blur-filter is the shared blur amount.
+	--frost-border-color: rgba(255, 255, 255, 0.08)
+	--menu-border: 1px solid var(--frost-border-color)
+	--menu-backdrop-filter: var(--blur-filter)
+	--dialog-backdrop-filter: var(--blur-filter)
+
+	// button → accent
+	--button-background-color: var(--accent)
+	--button-background-image: var(--accent-gradient)
+	--button-text-color: var(--accent-contrast)
+	// keep the contrast colour on hover — otherwise text falls back to the
+	// inherited page colour and becomes unreadable on the hover background.
+	--button-hover-text-color: var(--accent-contrast)
+	--button-hover-background-color: var(--accent-strong)
+	--button-hover-background-image: var(--accent-gradient-strong)
+	--button-font-weight: 600
+
+	// interactive controls → accent
+	--checkbox-checked-background-color: var(--accent)
+	--checkbox-checkmark-color: var(--accent-contrast)
+	--toggle-checked-background-color: var(--accent)
+	--toggle-checked-knob-color: var(--accent-contrast)
+	--progress-bar-progress-color: var(--accent)
+
+	// data grid + list
+	--data-grid-selected-row-background-color: var(--accent-soft)
+
+	// new components
+	--card-box-shadow: none
+	--badge-background-color: var(--accent-soft)
+	--badge-text-color: var(--accent)
+	--spinner-color: var(--accent)
+	--spinner-track-color: rgba(127, 127, 127, 0.2)
+	--tabs-active-color: var(--accent)
+	--tabs-indicator-color: var(--accent)
+	--tooltip-background-color: #1e293b
+	--tooltip-text-color: #f8fafc
+
+	// separator
+
+
+
+// if screen bellow 400px halve spacing
+@media screen and (max-width: 400px)
+	:root
+		--spacing: 7px
+
+$directions: top right bottom left
+$spacing-types: padding margin
+
+@each $spacing-type in $spacing-types
+	.#{$spacing-type}
+		#{$spacing-type}: var(--spacing)
+
+	.#{$spacing-type}-half
+		#{$spacing-type}: var(--spacing-f2)
+
+	@each $direction in $directions
+		.#{$spacing-type}-#{$direction}
+			#{$spacing-type}-#{$direction}: var(--spacing)
+
+		.#{$spacing-type}-#{$direction}-half
+			#{$spacing-type}-#{$direction}: var(--spacing-f2)
+
+@for $i from 1 through 5
+	@each $spacing-type in $spacing-types
+		.#{$spacing-type}-#{$i}
+			#{$spacing-type}: calc(var(--spacing) * #{$i})
+
+		.#{$spacing-type}-half-#{$i}
+			#{$spacing-type}: calc(var(--spacing-f2) * #{$i})
+
+		@each $direction in $directions
+			.#{$spacing-type}-#{$direction}-#{$i}
+				#{$spacing-type}-#{$direction}: calc(var(--spacing) * #{$i})
+
+			.#{$spacing-type}-#{$direction}-half-#{$i}
+				#{$spacing-type}-#{$direction}: calc(var(--spacing-f2) * #{$i})
+
+.opacity-0
+	opacity: 0
+
+svg.svg-icon, .svg-icon svg
+	fill: var(--svg-icon-fill, var(--text-color))
+	stroke: var(--svg-icon-stroke, none)
+	width: var(--svg-icon-width, none)
+	height: var(--svg-icon-height, none)
+	stroke: none
+
+.unstyle-button
+	background: none
+	border: none
+	padding: 0
+	font: inherit
+	cursor: pointer
+	outline: inherit
+	-webkit-appearance: none
+	-moz-appearance: none
+	text-align: inherit
+	line-height: inherit
+	color: var(--button-text-color)
+
+.unstyle-link
+	text-decoration: none
+	color: inherit
+
+@for $i from 0 through 5
+	.pt-#{$i}
+		padding-top: calc(var(--spacing) * #{$i})
+	.pb-#{$i}
+		padding-bottom: calc(var(--spacing) * #{$i})
+	.pl-#{$i}
+		padding-left: calc(var(--spacing) * #{$i})
+	.pr-#{$i}
+		padding-right: calc(var(--spacing) * #{$i})
+	.ph-#{$i}
+		padding-left: calc(var(--spacing) * #{$i})
+		padding-right: calc(var(--spacing) * #{$i})
+	.pv-#{$i}
+		padding-top: calc(var(--spacing) * #{$i})
+		padding-bottom: calc(var(--spacing) * #{$i})
+	.pa-#{$i}
+		padding: calc(var(--spacing) * #{$i})
+
+	.mt-#{$i}
+		margin-top: calc(var(--spacing) * #{$i})
+	.mb-#{$i}
+		margin-bottom: calc(var(--spacing) * #{$i})
+	.ml-#{$i}
+		margin-left: calc(var(--spacing) * #{$i})
+	.mr-#{$i}
+		margin-right: calc(var(--spacing) * #{$i})
+	.mh-#{$i}
+		margin-left: calc(var(--spacing) * #{$i})
+		margin-right: calc(var(--spacing) * #{$i})
+	.mv-#{$i}
+		margin-top: calc(var(--spacing) * #{$i})
+		margin-bottom: calc(var(--spacing) * #{$i})
+	.ma-#{$i}
+		margin: calc(var(--spacing) * #{$i})

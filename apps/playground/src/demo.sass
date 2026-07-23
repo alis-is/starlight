@@ -1,0 +1,58 @@
+// Shared styling for the playground demo pages.
+.demo-page
+	max-width: 900px
+	display: flex
+	flex-direction: column
+	gap: var(--spacing)
+
+.demo-page h1
+	margin: 0 0 var(--spacing-f2)
+
+.demo-page .tagline
+	color: var(--hint-color)
+	margin: 0
+
+.demo-page section
+	background: var(--card-background-color)
+	backdrop-filter: var(--blur-filter)
+	border: 1px solid var(--frost-border-color)
+	border-radius: var(--border-radius)
+	padding: var(--spacing)
+
+.demo-page h2
+	margin-top: 0
+
+.demo-page .row
+	display: flex
+	flex-wrap: wrap
+	gap: var(--spacing)
+	align-items: flex-end
+
+.demo-page .field-grid
+	display: grid
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr))
+	gap: var(--spacing) var(--spacing)
+	align-items: start
+
+.demo-page .stack
+	display: flex
+	flex-direction: column
+	gap: var(--spacing)
+
+.demo-page .field-label
+	display: block
+	margin-bottom: var(--spacing-f2)
+	font-size: calc(var(--font-size) * 0.8)
+	font-weight: bold
+	text-transform: uppercase
+	color: var(--hint-color)
+
+.demo-page .boxed
+	max-height: 340px
+	overflow: auto
+	border-radius: var(--border-radius)
+
+.demo-page .result
+	color: var(--hint-color)
+	font-size: 0.85rem
+	margin-bottom: 0
