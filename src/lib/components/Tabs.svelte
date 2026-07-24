@@ -77,6 +77,12 @@
 		display: flex
 		gap: var(--spacing-f2)
 		border-bottom: 1px solid var(--tabs-border-color, rgba(127, 127, 127, 0.25))
+		// scroll the tab bar on narrow screens instead of clipping/wrapping tabs
+		overflow-x: auto
+		scrollbar-width: none
+
+	.sl-tablist::-webkit-scrollbar
+		display: none
 
 	.sl-tab
 		appearance: none
@@ -86,6 +92,9 @@
 		cursor: pointer
 		color: var(--hint-color)
 		padding: var(--spacing-f2) var(--spacing)
+		// don't let tab labels squish/wrap when the bar scrolls
+		flex: none
+		white-space: nowrap
 		border-bottom: 2px solid transparent
 		margin-bottom: -1px
 		transition: color 0.15s, border-color 0.15s

@@ -82,7 +82,8 @@
 	display: flex
 	align-items: center
 	justify-content: var(--pagination-justify, center)
-	flex-wrap: nowrap
+	// wrap onto a second row on narrow screens instead of overflowing
+	flex-wrap: var(--pagination-wrap, wrap)
 	gap: var(--pagination-gap, var(--spacing-f2))
 
 	.sl-page-btn

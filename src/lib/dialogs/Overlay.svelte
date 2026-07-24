@@ -71,10 +71,9 @@
 <style lang="sass">
 dialog
 	position: fixed
-	top: 0
-	left: 0
-	width: 100vw
-	height: 100vh
+	// fill the viewport by stretching, not sizing — avoids the 100vw
+	// scrollbar-width overflow and the 100vh/dvh mobile chrome issue entirely
+	inset: 0
 	padding: 0px
 	margin: 0px 
 	border: 0px
@@ -85,10 +84,17 @@ dialog
 
 	.content-wrap
 		display: flex
-		align-items: center
+		// `safe center` keeps the dialog centred but pins it to the top once it's
+		// taller than the viewport, so the scrollable overflow doesn't clip the top.
+		align-items: safe center
 		justify-content: center
+		box-sizing: border-box
 		height: 100%
 		width: 100%
+		// keep dialogs off the viewport edges on small screens, and let tall
+		// dialogs scroll instead of being clipped by the overlay's overflow:hidden
+		padding: var(--dialog-viewport-padding, var(--spacing))
+		overflow-y: auto
 
 dialog[open]
 	animation: show-dialog .2s ease-in-out forwards

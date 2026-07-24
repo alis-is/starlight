@@ -35,7 +35,9 @@
 		line-height: 1.3
 		padding: 0.35em 0.6em
 		border-radius: calc(var(--border-radius) / 2)
-		white-space: nowrap
+		// wrap long text instead of running off narrow screens
+		width: max-content
+		max-width: var(--tooltip-max-width, min(18rem, 80vw))
 		box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 12px
 
 	&:hover .sl-tooltip-bubble,

@@ -75,6 +75,8 @@
 	display: grid
 	grid-template-rows: 1fr auto
 	height: calc(100vh - var(--spacing) * 2)
+	// dvh tracks the visible viewport on mobile (browser chrome show/hide)
+	height: calc(100dvh - var(--spacing) * 2)
 	width: var(--nav-menu-size)
 	max-width: 100vw
 	padding: var(--spacing-f2) 0
