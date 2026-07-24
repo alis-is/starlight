@@ -10,7 +10,6 @@
 		--spacing-x#{$i}: calc(var(--spacing) * #{$i})
 	@for $i from 2 through 5
 		--spacing-f#{$i}: calc(var(--spacing) / #{$i})
-	--spacing-f2: calc(var(--spacing) / 2)
 	--border-radius: 12px
 
 	// common
@@ -78,7 +77,6 @@
 	--input-hint-horizontal-spacing: var(--input-horizontal-spacing)
 
 	// checkbox
-	--checkbox-border-radius: calc(var(--border-radius) /2)
 	--checkbox-box-size: var(--common-line-height)
 	--checkbox-border-radius: calc(var(--border-radius) / 2)
 	--checkbox-box-shadow: none
@@ -221,9 +219,8 @@ $spacing-types: padding margin
 svg.svg-icon, .svg-icon svg
 	fill: var(--svg-icon-fill, var(--text-color))
 	stroke: var(--svg-icon-stroke, none)
-	width: var(--svg-icon-width, none)
-	height: var(--svg-icon-height, none)
-	stroke: none
+	width: var(--svg-icon-width, auto)
+	height: var(--svg-icon-height, auto)
 
 .unstyle-button
 	background: none
@@ -232,8 +229,7 @@ svg.svg-icon, .svg-icon svg
 	font: inherit
 	cursor: pointer
 	outline: inherit
-	-webkit-appearance: none
-	-moz-appearance: none
+	appearance: none
 	text-align: inherit
 	line-height: inherit
 	color: var(--button-text-color)
