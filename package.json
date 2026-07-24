@@ -1,6 +1,6 @@
 {
 	"name": "@alis-is/starlight",
-	"version": "0.2.1",
+	"version": "0.2.2",
 	"description": "Starlight — a themeable Svelte 5 UI component library.",
 	"license": "MIT",
 	"type": "module",
