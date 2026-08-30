@@ -44,8 +44,7 @@
 		class:autosize
 		use:autosizeAction
 		aria-invalid={invalid}
-		{...rest}
-	></textarea>
+		{...rest}></textarea>
 	{#if hint}<span class="sl-textarea-hint">{hint}</span>{/if}
 </div>
 
