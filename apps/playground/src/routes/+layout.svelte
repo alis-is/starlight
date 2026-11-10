@@ -18,7 +18,7 @@
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
-	import { THEMES, applyTheme, loadTheme, type Theme } from '#lib/theme.ts';
+	import { THEMES, applyTheme, loadTheme, type Theme } from '$lib/theme';
 
 	let { children } = $props();
 
