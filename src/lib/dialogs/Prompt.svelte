@@ -1,9 +1,9 @@
 <script lang="ts">
 	import OverlayDialog from './Overlay.svelte';
-	import type { PromiseFinalizers, ValidationRules } from '../types';
+	import type { PromiseFinalizers, ValidationRules } from '../types.ts';
 	import Input from '../components/Input.svelte';
-	import { USER_CANCELED } from '../internal/constants';
-	import { validate } from '../internal/util';
+	import { USER_CANCELED } from '../internal/constants.ts';
+	import { validate } from '../internal/util.ts';
 	import Button from '../components/Button.svelte';
 	import type { Snippet } from 'svelte';
 

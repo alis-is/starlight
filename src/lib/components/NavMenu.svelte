@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { NavMenuItemType } from '../types';
+	import type { NavMenuItemType } from '../types.ts';
 	import NavMenuItem from './NavMenuItem.svelte';
 	import NavHamburgerIcon from './NavHamburgerIcon.svelte';
 

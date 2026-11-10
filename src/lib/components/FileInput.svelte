@@ -1,7 +1,7 @@
 <script lang="ts">
 	import FileUpload from '../icons/file-upload.svelte';
-	import { array_to_file_list, validate } from '../internal/util';
-	import type { ValidationRules } from '../types';
+	import { array_to_file_list, validate } from '../internal/util.ts';
+	import type { ValidationRules } from '../types.ts';
 
 	interface Props {
 		id?: string;
@@ -135,138 +135,138 @@
 </div>
 
 <style lang="sass">
-	$animation-duration: 0.2s
+$animation-duration: 0.2s
 
-	.drop-zone-active
+.drop-zone-active
+	background-color: var(--input-background-highlight-color) !important
+
+	.border
+		opacity: 0.5 !important
+
+	.upload-icon
+		transform: scale(1.1)
+
+// files selected — accent the frame and shrink the icon a touch
+.has-files
+	background-color: color-mix(in srgb, var(--accent) 7%, var(--input-background-color)) !important
+
+	.border
+		opacity: 1
+		border-style: solid
+		border-color: color-mix(in srgb, var(--accent) 40%, transparent)
+
+	.upload-icon :global(svg)
+		width: calc(var(--file-upload-icon-size, 4rem) * 0.6)
+		height: calc(var(--file-upload-icon-size, 4rem) * 0.6)
+
+.input-wrap
+	position: relative
+	display: inline-block
+	width: 100%
+	box-sizing: border-box
+	border-radius: var(--input-border-radius)
+	background-color: var(--input-background-color)
+	cursor: pointer
+	user-select: none
+	padding: var(--spacing)
+	transition: background-color $animation-duration linear
+
+	.border
+		position: absolute
+		top: var(--spacing-f2)
+		left: var(--spacing-f2)
+		right: var(--spacing-f2)
+		bottom: var(--spacing-f2)
+		border: 2px dashed var(--file-upload-border-color, color-mix(in srgb, var(--hint-color) 45%, transparent))
+		border-radius: var(--input-border-radius)
+		opacity: 0
+		pointer-events: none
+		transition: opacity $animation-duration linear
+
+	&:hover
 		background-color: var(--input-background-highlight-color) !important
-
-		.border
-			opacity: 0.5 !important
 
 		.upload-icon
 			transform: scale(1.1)
 
-	// files selected — accent the frame and shrink the icon a touch
-	.has-files
-		background-color: color-mix(in srgb, var(--accent) 7%, var(--input-background-color)) !important
+	.upload-area
+		display: flex
+		flex-direction: column
+		align-items: center
+		justify-content: center
+		gap: var(--spacing-f2)
+		min-height: var(--file-upload-min-height, 150px)
+		text-align: center
+		pointer-events: none
 
-		.border
-			opacity: 1
-			border-style: solid
-			border-color: color-mix(in srgb, var(--accent) 40%, transparent)
-
-		.upload-icon :global(svg)
-			width: calc(var(--file-upload-icon-size, 4rem) * 0.6)
-			height: calc(var(--file-upload-icon-size, 4rem) * 0.6)
-
-	.input-wrap
-		position: relative
-		display: inline-block
-		width: 100%
-		box-sizing: border-box
-		border-radius: var(--input-border-radius)
-		background-color: var(--input-background-color)
-		cursor: pointer
-		user-select: none
-		padding: var(--spacing)
-		transition: background-color $animation-duration linear
-
-		.border
-			position: absolute
-			top: var(--spacing-f2)
-			left: var(--spacing-f2)
-			right: var(--spacing-f2)
-			bottom: var(--spacing-f2)
-			border: 2px dashed var(--file-upload-border-color, color-mix(in srgb, var(--hint-color) 45%, transparent))
-			border-radius: var(--input-border-radius)
-			opacity: 0
-			pointer-events: none
-			transition: opacity $animation-duration linear
-
-		&:hover
-			background-color: var(--input-background-highlight-color) !important
-
-			.upload-icon
-				transform: scale(1.1)
-
-		.upload-area
+		.upload-icon
 			display: flex
-			flex-direction: column
+			transition: transform $animation-duration linear
+			justify-content: center
 			align-items: center
+
+			:global(svg)
+				width: var(--file-upload-icon-size, 4rem)
+				height: var(--file-upload-icon-size, 4rem)
+				fill: var(--file-upload-icon-color, var(--accent))
+
+		.label
+			font-size: var(--font-size)
+			color: var(--input-text-color, var(--text-color))
+			font-weight: bold
+
+		.files
+			display: flex
+			flex-wrap: wrap
 			justify-content: center
 			gap: var(--spacing-f2)
-			min-height: var(--file-upload-min-height, 150px)
-			text-align: center
-			pointer-events: none
+			max-width: 100%
 
-			.upload-icon
-				display: flex
-				transition: transform $animation-duration linear
-				justify-content: center
+			.file-chip
+				display: inline-flex
 				align-items: center
-
-				:global(svg)
-					width: var(--file-upload-icon-size, 4rem)
-					height: var(--file-upload-icon-size, 4rem)
-					fill: var(--file-upload-icon-color, var(--accent))
-
-			.label
-				font-size: var(--font-size)
-				color: var(--input-text-color, var(--text-color))
-				font-weight: bold
-
-			.files
-				display: flex
-				flex-wrap: wrap
-				justify-content: center
 				gap: var(--spacing-f2)
 				max-width: 100%
+				padding: 0.2em 0.3em 0.2em 0.7em
+				border-radius: 999px
+				background: color-mix(in srgb, var(--accent) 16%, transparent)
+				color: var(--accent)
+				font-size: 0.85rem
 
-				.file-chip
-					display: inline-flex
-					align-items: center
-					gap: var(--spacing-f2)
-					max-width: 100%
-					padding: 0.2em 0.3em 0.2em 0.7em
-					border-radius: 999px
-					background: color-mix(in srgb, var(--accent) 16%, transparent)
-					color: var(--accent)
-					font-size: 0.85rem
+			.file-name
+				overflow: hidden
+				text-overflow: ellipsis
+				white-space: nowrap
 
-				.file-name
-					overflow: hidden
-					text-overflow: ellipsis
-					white-space: nowrap
+			.file-remove
+				pointer-events: auto
+				flex: none
+				cursor: pointer
+				display: inline-flex
+				align-items: center
+				justify-content: center
+				width: 1.35em
+				height: 1.35em
+				border: none
+				border-radius: 50%
+				background: transparent
+				color: inherit
+				font-size: 1.05em
+				line-height: 1
 
-				.file-remove
-					pointer-events: auto
-					flex: none
-					cursor: pointer
-					display: inline-flex
-					align-items: center
-					justify-content: center
-					width: 1.35em
-					height: 1.35em
-					border: none
-					border-radius: 50%
-					background: transparent
-					color: inherit
-					font-size: 1.05em
-					line-height: 1
+				&:hover
+					background: color-mix(in srgb, var(--accent) 28%, transparent)
 
-					&:hover
-						background: color-mix(in srgb, var(--accent) 28%, transparent)
+		.hint
+			color: var(--input-hint-color, var(--hint-color))
+			font-size: var(--input-hint-font-size)
+			opacity: 0
+			transition: opacity $animation-duration linear
 
-			.hint
-				color: var(--input-hint-color, var(--hint-color))
-				font-size: var(--input-hint-font-size)
-				opacity: 0
-				transition: opacity $animation-duration linear
+		.hint-visible
+			opacity: 1
 
-			.hint-visible
-				opacity: 1
-
-			.invalid-text
-				font-weight: bold
-				color: var(--error-color) !important
+		.invalid-text
+			font-weight: bold
+			color: var(--error-color) !important
 </style>

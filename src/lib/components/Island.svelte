@@ -1,7 +1,7 @@
 <script lang="ts">
 	import AngleRight from '../icons/angle-right.svelte';
 	import AngleLeft from '../icons/angle-left.svelte';
-	import { ExpandingContainerDirection } from '../types';
+	import { ExpandingContainerDirection } from '../types.ts';
 	import Button from './Button.svelte';
 	import ExpandingContainer from './ExpandingContainer.svelte';
 	import type { Snippet } from 'svelte';

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
-	import { RADIO_GROUP, type RadioGroupContext } from '../internal/radio-context';
+	import { RADIO_GROUP, type RadioGroupContext } from '../internal/radio-context.ts';
 
 	interface Props {
 		value: unknown;

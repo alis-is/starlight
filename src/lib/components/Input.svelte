@@ -1,8 +1,8 @@
 <script lang="ts">
 	import AngleDownIcon from '../icons/angle-down.svelte';
 	import AngleUpIcon from '../icons/angle-up.svelte';
-	import { create_key_press_handler, validate } from '../internal/util';
-	import type { ValidationRules } from '../types';
+	import { create_key_press_handler, validate } from '../internal/util.ts';
+	import type { ValidationRules } from '../types.ts';
 
 	interface Props {
 		id?: string;

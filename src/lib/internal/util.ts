@@ -1,5 +1,5 @@
-import type { ValidationRules } from '../types';
-import { MENU_LAYER_ID } from './constants';
+import type { ValidationRules } from '../types.ts';
+import { MENU_LAYER_ID } from './constants.ts';
 
 export function teleport_under_element(
 	element: HTMLElement & { __origin?: HTMLElement | null },

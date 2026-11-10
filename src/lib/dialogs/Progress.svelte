@@ -1,7 +1,7 @@
 <script lang="ts">
 	import OverlayDialog from './Overlay.svelte';
 	import ProgressBar from '../components/ProgressBar.svelte';
-	import type { ProgressValue } from '../types';
+	import type { ProgressValue } from '../types.ts';
 	import type { Snippet } from 'svelte';
 
 	interface ProgressDialogState {

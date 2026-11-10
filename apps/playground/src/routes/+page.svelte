@@ -1,13 +1,13 @@
 <script lang="ts">
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 	import { Card, Badge } from '@alis-is/starlight';
 
 	const categories = [
-		{ label: 'Forms', path: 'forms', desc: 'Buttons, inputs, selects, toggles, menus.' },
-		{ label: 'Data', path: 'data', desc: 'Searchable list and the data grid.' },
-		{ label: 'Feedback', path: 'feedback', desc: 'Progress, spinner, badges, tooltips.' },
-		{ label: 'Layout', path: 'layout', desc: 'Card, tabs, expander, island.' },
-		{ label: 'Overlays', path: 'overlays', desc: 'Alert, confirm and prompt dialogs.' }
+		{ label: 'Forms', path: resolve('/forms'), desc: 'Buttons, inputs, selects, toggles, menus.' },
+		{ label: 'Data', path: resolve('/data'), desc: 'Searchable list and the data grid.' },
+		{ label: 'Feedback', path: resolve('/feedback'), desc: 'Progress, spinner, badges, tooltips.' },
+		{ label: 'Layout', path: resolve('/layout'), desc: 'Card, tabs, expander, island.' },
+		{ label: 'Overlays', path: resolve('/overlays'), desc: 'Alert, confirm and prompt dialogs.' }
 	];
 </script>
 
@@ -29,8 +29,7 @@
 
 	<div class="cards">
 		{#each categories as c (c.path)}
-			<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
-			<a class="card-link" href="{base}/{c.path}">
+			<a class="card-link" href={c.path}>
 				<Card title={c.label}>
 					<p style="margin: 0; color: var(--hint-color)">{c.desc}</p>
 				</Card>

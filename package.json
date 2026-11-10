@@ -42,10 +42,14 @@
 			"svelte": "./dist/la/index.js",
 			"default": "./dist/la/index.js"
 		},
-		"./components/Terminal.svelte": {
-			"types": "./dist/components/Terminal.svelte.d.ts",
-			"svelte": "./dist/components/Terminal.svelte",
-			"default": "./dist/components/Terminal.svelte"
+		"./*.svelte": {
+			"types": "./dist/*.svelte.d.ts",
+			"svelte": "./dist/*.svelte",
+			"default": "./dist/*.svelte"
+		},
+		"./*.js": {
+			"types": "./dist/*.d.ts",
+			"default": "./dist/*.js"
 		},
 		"./style.sass": "./dist/style.sass",
 		"./package.json": "./package.json",
@@ -84,22 +88,22 @@
 	},
 	"devDependencies": {
 		"@eslint/js": "^10.0.1",
-		"@sveltejs/package": "^2.5.8",
-		"@sveltejs/vite-plugin-svelte": "^7.3.0",
+		"@sveltejs/package": "^3.0.2",
+		"@sveltejs/vite-plugin-svelte": "^7.3.1",
 		"@xterm/addon-fit": "^0.11.0",
 		"@xterm/xterm": "^6.0.0",
-		"bumpp": "^12.2.2",
-		"eslint": "^10.9.1",
+		"bumpp": "^12.3.0",
+		"eslint": "^10.14.0",
 		"eslint-config-prettier": "^10.1.8",
-		"eslint-plugin-svelte": "^3.23.0",
-		"globals": "^17.11.0",
-		"prettier": "^3.9.6",
+		"eslint-plugin-svelte": "^3.24.1",
+		"globals": "^17.14.0",
+		"prettier": "^3.9.10",
 		"prettier-plugin-svelte": "^4.1.1",
-		"publint": "^0.3.24",
-		"sass": "^1.103.1",
-		"svelte": "^5.56.10",
-		"svelte-check": "^4.7.6",
+		"publint": "^0.3.25",
+		"sass": "^1.108.1",
+		"svelte": "^5.57.3",
+		"svelte-check": "^4.7.8",
 		"typescript": "^6.0.3",
-		"typescript-eslint": "^8.68.0"
+		"typescript-eslint": "^8.72.1"
 	}
 }

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import AngleDownIcon from '../icons/angle-down.svelte';
 	import { onMount } from 'svelte';
-	import type { SelectItem } from '../types';
+	import type { SelectItem } from '../types.ts';
 	import Menu from './Menu.svelte';
 
 	interface Props {

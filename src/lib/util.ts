@@ -1,4 +1,4 @@
-import type { SelectItem } from './types';
+import type { SelectItem } from './types.ts';
 
 export function pick_select_option<T>(options: Array<SelectItem<T>>, value?: T, default_value?: T) {
 	const selected_option = options.find((x) => x.value == value);

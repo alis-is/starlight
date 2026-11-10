@@ -13,12 +13,12 @@
 		InfoIcon
 	} from '@alis-is/starlight/la';
 	import { goto } from '$app/navigation';
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
-	import { THEMES, applyTheme, loadTheme, type Theme } from '$lib/theme';
+	import { THEMES, applyTheme, loadTheme, type Theme } from '#lib/theme.ts';
 
 	let { children } = $props();
 
@@ -32,16 +32,16 @@
 	}
 
 	const items: NavMenuItemType[] = [
-		{ label: 'Overview', path: `${base}/`, icon: HomeIcon },
-		{ label: 'Forms', path: `${base}/forms`, icon: EditIcon },
-		{ label: 'Data', path: `${base}/data`, icon: TableIcon },
-		{ label: 'Feedback', path: `${base}/feedback`, icon: BellIcon },
-		{ label: 'Layout', path: `${base}/layout`, icon: ThLargeIcon },
-		{ label: 'Overlays', path: `${base}/overlays`, icon: WindowRestoreIcon },
-		{ label: 'Terminal', path: `${base}/terminal`, icon: TerminalIcon }
+		{ label: 'Overview', path: resolve('/'), icon: HomeIcon },
+		{ label: 'Forms', path: resolve('/forms'), icon: EditIcon },
+		{ label: 'Data', path: resolve('/data'), icon: TableIcon },
+		{ label: 'Feedback', path: resolve('/feedback'), icon: BellIcon },
+		{ label: 'Layout', path: resolve('/layout'), icon: ThLargeIcon },
+		{ label: 'Overlays', path: resolve('/overlays'), icon: WindowRestoreIcon },
+		{ label: 'Terminal', path: resolve('/terminal'), icon: TerminalIcon }
 	];
 	const bottomItems: NavMenuItemType[] = [
-		{ label: 'About', path: `${base}/about`, icon: InfoIcon }
+		{ label: 'About', path: resolve('/about'), icon: InfoIcon }
 	];
 </script>
 

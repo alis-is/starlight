@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Icon } from '../types';
+	import type { Icon } from '../types.ts';
 	import type { Snippet } from 'svelte';
 
 	interface Props {

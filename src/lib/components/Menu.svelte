@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { tick, type Snippet } from 'svelte';
-	import type { MenuItem } from '../types';
+	import type { MenuItem } from '../types.ts';
 	import Button from './Button.svelte';
 
 	interface Props {

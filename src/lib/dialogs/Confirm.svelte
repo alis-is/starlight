@@ -1,7 +1,7 @@
 <script lang="ts">
 	import OverlayDialog from './Overlay.svelte';
-	import type { PromiseFinalizers } from '../types';
-	import { USER_CANCELED } from '../internal/constants';
+	import type { PromiseFinalizers } from '../types.ts';
+	import { USER_CANCELED } from '../internal/constants.ts';
 	import Button from '../components/Button.svelte';
 	import type { Snippet } from 'svelte';
 

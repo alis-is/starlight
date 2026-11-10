@@ -1,9 +1,9 @@
 <script lang="ts">
 	import OverlayDialog from './Overlay.svelte';
-	import type { PromiseFinalizers, SelectItem } from '../types';
-	import { USER_CANCELED } from '../internal/constants';
+	import type { PromiseFinalizers, SelectItem } from '../types.ts';
+	import { USER_CANCELED } from '../internal/constants.ts';
 	import Button from '../components/Button.svelte';
-	import Select from '../components/Select.svelte';
+	import SelectInput from '../components/Select.svelte';
 	import type { Snippet } from 'svelte';
 
 	interface SelectDialogState<TValue> {
@@ -88,7 +88,7 @@
 		{#if message}{@render message(active_state)}{:else if active_state.message}
 			<p class="message">{active_state.message}</p>
 		{/if}
-		<Select bind:value {options} />
+		<SelectInput bind:value {options} />
 		<div class="controls padding-top">
 			<div class="control-button" style:grid-column="1">
 				<Button

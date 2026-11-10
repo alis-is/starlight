@@ -1,7 +1,7 @@
 <script lang="ts">
 	import OverlayDialog from './Overlay.svelte';
 	import Button from '../components/Button.svelte';
-	import Terminal from '../components/Terminal.svelte';
+	import TerminalView from '../components/Terminal.svelte';
 	interface Props {
 		title?: import('svelte').Snippet<[any]>;
 	}
@@ -20,7 +20,7 @@
 		close_text: 'Cancel'
 	};
 
-	let terminal: ReturnType<typeof Terminal> | undefined = $state(undefined);
+	let terminal: ReturnType<typeof TerminalView> | undefined = $state(undefined);
 	let active_state = $state(default_state);
 	let is_open = $state(false);
 
@@ -65,7 +65,7 @@
 			<h3 class="title">{active_state.title}</h3>
 		{/if}
 		<div class="terminal">
-			<Terminal bind:this={terminal} />
+			<TerminalView bind:this={terminal} />
 		</div>
 		<div class="controls padding-top">
 			<div class="control-button" class:disabled={!active_state.allow_close} style:grid-column="2">

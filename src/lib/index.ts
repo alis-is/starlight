@@ -38,7 +38,7 @@ export {
 	type ToastItem,
 	type ToastOptions,
 	type ToastVariant
-} from './components/toast.svelte';
+} from './components/toast.svelte.ts';
 export { default as Toggle } from './components/Toggle.svelte';
 export { default as Tooltip } from './components/Tooltip.svelte';
 // Terminal + TerminalDialog depend on the optional @xterm/* peers and are NOT
@@ -56,7 +56,7 @@ export { default as PromptDialog } from './dialogs/Prompt.svelte';
 export { default as SelectDialog } from './dialogs/Select.svelte';
 
 // Types & utilities
-export * from './types';
-export * from './util';
-export * from './internal/util';
-export { USER_CANCELED } from './internal/constants';
+export * from './types.ts';
+export * from './util.ts';
+export * from './internal/util.ts';
+export { USER_CANCELED } from './internal/constants.ts';

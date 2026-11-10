@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { setContext, type Snippet } from 'svelte';
-	import { RADIO_GROUP, type RadioGroupContext } from '../internal/radio-context';
+	import { RADIO_GROUP, type RadioGroupContext } from '../internal/radio-context.ts';
 	import Radio from './Radio.svelte';
 
 	interface Option {

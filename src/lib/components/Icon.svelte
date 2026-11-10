@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { Icon } from '../types';
+	import type { Icon as IconType } from '../types.ts';
 
 	interface Props {
-		icon: Icon;
+		icon: IconType;
 		class?: string;
 		onclick?: () => void;
 	}
@@ -31,17 +31,17 @@
 {/if}
 
 <style lang="sass">
-	.icon
-		width: var(--icon-size)
-		height: var(--icon-size)
-		fill: var(--icon-color)
+.icon
+	width: var(--icon-size)
+	height: var(--icon-size)
+	fill: var(--icon-color)
 
-	button.icon
-		background: none
-		border: none
-		padding: 0
-		cursor: pointer
-		display: inline-flex
-		align-items: center
-		justify-content: center
+button.icon
+	background: none
+	border: none
+	padding: 0
+	cursor: pointer
+	display: inline-flex
+	align-items: center
+	justify-content: center
 </style>

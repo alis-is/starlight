@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ExpandingContainerDirection } from '../types';
+	import { ExpandingContainerDirection } from '../types.ts';
 	import type { Snippet } from 'svelte';
 
 	interface Props {
@@ -64,34 +64,34 @@
 </div>
 
 <style lang="sass">
-	.container-vertical 
-		height: var(--expanding-container-collapsed-height, 0)
-		max-height: var(--expanding-container-max-height)
-		overflow: var(--expanding-container-overflow, hidden)
-		transition: height var(--expanding-container-transition-duration) ease-in-out
-		position: relative
+.container-vertical 
+	height: var(--expanding-container-collapsed-height, 0)
+	max-height: var(--expanding-container-max-height)
+	overflow: var(--expanding-container-overflow, hidden)
+	transition: height var(--expanding-container-transition-duration) ease-in-out
+	position: relative
 
-		&.open 
-			height: var(--expanding-container-expanded-height, auto)
+	&.open 
+		height: var(--expanding-container-expanded-height, auto)
 
-		
-		.content 
-			height: auto
-			padding: var(--expanding-container-padding, 0)
-
-	.container-horizontal 
-		width: var(--expanding-container-collapsed-width, 0)
-		max-width: var(--expanding-container-max-width)
-		overflow: var(--expanding-container-overflow, hidden)
-		transition: width var(--expanding-container-transition-duration) ease-in-out
-		position: relative
-		height: 100%
-
-		&.open 
-			width: var(--expanding-container-expanded-width, auto)
 	
-		.content 
-			height: 100%
-			width: max-content
-			padding: var(--expanding-container-padding, 0)
+	.content 
+		height: auto
+		padding: var(--expanding-container-padding, 0)
+
+.container-horizontal 
+	width: var(--expanding-container-collapsed-width, 0)
+	max-width: var(--expanding-container-max-width)
+	overflow: var(--expanding-container-overflow, hidden)
+	transition: width var(--expanding-container-transition-duration) ease-in-out
+	position: relative
+	height: 100%
+
+	&.open 
+		width: var(--expanding-container-expanded-width, auto)
+
+	.content 
+		height: 100%
+		width: max-content
+		padding: var(--expanding-container-padding, 0)
 </style>
